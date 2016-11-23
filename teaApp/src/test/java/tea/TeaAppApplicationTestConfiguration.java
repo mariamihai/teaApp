@@ -10,10 +10,12 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import app.util.ConfigProfil;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 //@EnableWebMvc
-@Profile("test")
+@Profile(ConfigProfil.TEST)
 // TODO - delete this ?
 public class TeaAppApplicationTestConfiguration {
 

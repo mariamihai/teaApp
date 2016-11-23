@@ -16,17 +16,19 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 
+import app.util.ConfigProfil;
 import tea.dao.entities.TeaCategory;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 @Transactional
-@ActiveProfiles("test")
+@ActiveProfiles(ConfigProfil.TEST)
 public class TeaCategoryTest {
 
 	
 	@Autowired
 	TeaCategoryRepository repo;
+	
 	
 	@Test
 	public void testGetCategory() {
@@ -50,4 +52,30 @@ public class TeaCategoryTest {
 		assertThat(savedCategory != null);
 	}
 	
+	@Test
+	public void testUpdateCategory() {
+		TeaCategory category = repo.findOne(1L);
+		category.setName("Changed Named");
+		
+		TeaCategory savedCategory = repo.saveAndFlush(category);
+		
+		assertThat(savedCategory.getId(), is(1L));
+		assertThat(savedCategory.getName(), is("Changed Named"));
+	}
+	
+	@Test
+	public void testDeleteCategory() {
+		repo.delete(1L);
+		
+		List<TeaCategory> categories = repo.findAll();		
+		assertThat(categories.size(), is(4));
+	}
+	
+	@Test
+	public void testDeleteAllCategories() {
+		repo.deleteAll();
+		
+		List<TeaCategory> categories = repo.findAll();		
+		assertThat(categories.size(), is(0));
+	}
 }
