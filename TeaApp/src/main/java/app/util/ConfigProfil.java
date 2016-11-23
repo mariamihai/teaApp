@@ -5,6 +5,7 @@ package app.util;
  * 
  * @author mmihai
  */
+// TODO - can it be used for testing?
 public final class ConfigProfil {
 
 	public static final String DEV = "mysql";
