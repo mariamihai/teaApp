@@ -1,17 +1,26 @@
 package tea.dto;
 
-public class TeaCategoryDto {
+import java.util.List;
+
+public class CompanyDto {
+	
 	
 	private Long id;
     private String name;
+    private List<TeaDto> teaList;
+    private UserDto addedByUser;
     
-    
-    public TeaCategoryDto() { }
-    public TeaCategoryDto(Long id) { this.id = id; }
-	public TeaCategoryDto(Long id, String name) {
+
+	public CompanyDto() { super(); }
+	public CompanyDto(Long id) {
+		super();
+		this.id = id;
+	}
+	public CompanyDto(Long id, String name, List<TeaDto> teaList) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.teaList = teaList;
 	}
 	
 	
@@ -21,13 +30,18 @@ public class TeaCategoryDto {
 	public String getName() { return name; }
 	public void setName(String name) { this.name = name; }
 	
+	public List<TeaDto> getTeaList() { return teaList; }
+	public void setTeaList(List<TeaDto> teaList) { this.teaList = teaList; }
+		
+	public UserDto getAddedByUser() { return addedByUser; }
+	public void setAddedByUser(UserDto addedByUser) { this.addedByUser = addedByUser; }
+	
 	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 	@Override
@@ -39,19 +53,20 @@ public class TeaCategoryDto {
 		if (getClass() != obj.getClass())
 			return false;
 		
-		TeaCategoryDto other = (TeaCategoryDto) obj;
+		CompanyDto other = (CompanyDto) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-
+		
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "TeaCategoryDto [id=" + id + ", "
-							 + "name=" + name + "]";
-	}    
-    
+		return "CompanyDto [id=" + id + ", "
+						 + "name=" + name 
+						 + "]";
+	}
+	
 }
