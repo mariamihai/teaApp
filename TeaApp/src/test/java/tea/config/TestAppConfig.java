@@ -13,13 +13,11 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import app.util.ConfigProfil;
-
 @Configuration
 @EnableTransactionManagement
 @ComponentScan("tea")
 @EnableJpaRepositories("tea.dao")
-@Profile(ConfigProfil.TEST)
+@Profile("hsql")
 public class TestAppConfig {
 	
 	@Bean

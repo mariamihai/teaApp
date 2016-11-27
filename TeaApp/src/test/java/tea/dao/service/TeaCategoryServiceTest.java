@@ -6,18 +6,17 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
+import org.springframework.context.annotation.Profile;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import app.util.ConfigProfil;
 import tea.dto.TeaCategoryDto;
 import tea.service.TeaCategoryService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 @Transactional
-@ActiveProfiles(ConfigProfil.TEST)
+@Profile("mysql") // hsql
 public class TeaCategoryServiceTest {
 
 	
@@ -27,8 +26,9 @@ public class TeaCategoryServiceTest {
 	
 	@Test
 	public void testGetCategory() throws Exception {
-		TeaCategoryDto dto = service.getDto(1L);
+		TeaCategoryDto dto = service.getDto(1L, TeaCategoryDto.class);
 		
 		assertThat(dto != null);
+//		assertThat(dto.getName(), is("Green"));
 	}
 }

@@ -1,11 +1,16 @@
 package tea.dao.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -20,6 +25,7 @@ public class TeaCategory implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false) @Column(name = "id")    
     private Long id;    
     @Basic(optional = false) @Column(name = "name")
@@ -40,8 +46,8 @@ public class TeaCategory implements Serializable {
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
-
     
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

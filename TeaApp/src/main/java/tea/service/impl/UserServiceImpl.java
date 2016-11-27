@@ -21,4 +21,17 @@ public class UserServiceImpl implements UserService {
 		return repo;
 	}
 
+
+	@Override
+	public Long add(Long dto) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Long update(Long dto) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

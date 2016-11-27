@@ -2,14 +2,12 @@ package tea.dto;
 
 import java.util.List;
 
-import tea.dao.entities.TeaCategory;
-
 public class TeaTypeDto {
 	
 	
 	private Long id;
     private String name;
-    private TeaCategory category;
+    private TeaCategoryDto category;
     private List<TeaDto> teaList;
     
     
@@ -19,7 +17,7 @@ public class TeaTypeDto {
 		this.id = id;
 		this.name = name;
 	}
-	public TeaTypeDto(Long id, String name, TeaCategory category) {
+	public TeaTypeDto(Long id, String name, TeaCategoryDto category) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -33,8 +31,8 @@ public class TeaTypeDto {
 	public String getName() { return name; }
 	public void setName(String name) { this.name = name; }
 	
-	public TeaCategory getCategory() { return category; }
-	public void setCategory(TeaCategory category) { this.category = category; }
+	public TeaCategoryDto getCategory() { return category; }
+	public void setCategory(TeaCategoryDto category) { this.category = category; }
 		
 	public List<TeaDto> getTeaList() { return teaList; }
 	public void setTeaList(List<TeaDto> teaList) { this.teaList = teaList; }

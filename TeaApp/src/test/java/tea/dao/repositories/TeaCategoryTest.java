@@ -16,13 +16,12 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 
-import app.util.ConfigProfil;
 import tea.dao.entities.TeaCategory;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 @Transactional
-@ActiveProfiles(ConfigProfil.TEST)
+@ActiveProfiles("hsql")
 public class TeaCategoryTest {
 
 	
